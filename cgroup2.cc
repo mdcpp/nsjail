@@ -54,7 +54,7 @@ static bool addPidToProcList(const std::string &cgroup_path, pid_t pid) {
 }
 
 static std::string getCgroupPath(nsjconf_t *nsjconf, pid_t pid) {
-	return nsjconf->cgroupv2_mount + "/NSJAIL." + std::to_string(pid);
+	return nsjconf->cgroupv2_mount + "/" + nsjconf->cgroup_cpu_parent;
 }
 static std::string getJailCgroupPath(nsjconf_t *nsjconf) {
 	return nsjconf->cgroupv2_mount + "/NSJAIL_SELF." + std::to_string(getpid());
